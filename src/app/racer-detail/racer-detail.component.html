@@ -1,3 +1,68 @@
-<p>
-  racer-detail works!
-</p>
+<div class="card" style="width: 18rem;" *ngIf="listDetail">
+  <h2>Racer Detail</h2>
+  <ul class="list-group list-group-flush">
+     <p>
+      <span class="article">
+        Name:
+      </span>
+      {{ listDetail.Driver.givenName }}
+      {{ listDetail.Driver.familyName}}
+    </p>
+    <p>
+      <span  class="article">
+        Nationality:
+      </span>
+      <span class="flag-icon flag-icon-{{listDetail.Driver.nationality | flag}} 
+      flag-icon-squared">
+      </span>
+      {{listDetail.Driver.nationality }}
+     
+    </p>
+    <p>
+      <span class="article">
+        Team:
+      </span>
+      {{ listDetail.Constructors[0].name }}
+    </p>
+    <p>
+      <span class="article">
+        Date of birth:
+      </span>
+      {{ listDetail.Driver.dateOfBirth }}
+    </p>
+    <p>
+      <span class="article">
+        Biography:
+      </span>
+      <a [href]="listDetail.Driver.url" target="_blank">Link</a>
+    </p>
+    <p>
+      <button class="btn btn-primary" (click) = "goBack()">Back</button>
+    </p>
+  </ul>
+</div>
+
+<table class="table">
+      
+  <thead>
+    <tr>
+      <th scope="col">Round</th>
+      <th scope="col">Grand prix</th>
+      <th scope="col">Team</th>
+      <th scope="col">Grid</th>
+      <th scope="col">Race</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr class="dataRacing" *ngFor="let eachRacing of DataRacing">
+     
+  
+      <th scope="row"> {{eachRacing.round}}</th>
+      <td>{{eachRacing.Circuit.circuitName}}</td>
+      <td>{{eachRacing.Results[0].Constructor.name}} </td>
+      <td>{{eachRacing.Results[0].grid }}</td>
+      <td>{{eachRacing.Results[0].position}}</td>
+  
+    </tr>
+  </tbody>
+</table>

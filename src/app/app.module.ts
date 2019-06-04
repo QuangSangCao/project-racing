@@ -7,8 +7,11 @@ import { AppComponent } from './app.component';
 import { ListRacerComponent } from './list-racer/list-racer.component';
 import { RacerDetailComponent } from './racer-detail/racer-detail.component';
 import {HttpClientModule} from '@angular/common/http';
-import {ApiService} from './api.service';
+import {ApiService} from './service/api.service';
 import {RacerFilterPipe} from './pipe/pipe.component';
+import {DetailService} from './service/detail.service';
+import { PipeModule } from './pipe/pipe.module';
+
 
 @NgModule({
   declarations: [
@@ -21,9 +24,10 @@ import {RacerFilterPipe} from './pipe/pipe.component';
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
-    FormsModule
+    FormsModule,
+    PipeModule
   ],
-  providers: [ApiService],
+  providers: [ApiService , DetailService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

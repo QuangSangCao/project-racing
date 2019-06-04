@@ -1,4 +1,4 @@
-
+  
 <div class="container" >
 
     <div class="parent">
@@ -16,13 +16,16 @@
           </tr>
         </thead>
         <tbody>
-          <tr id="dataRacer"  *ngFor="let eachRacer of dataRacer | RacerFilterPipe : searchTeam">
+          <tr class="dataRacer"  *ngFor="let eachRacer of dataRacer | RacerFilterPipe : searchTeam" 
+          (click) ="navigateToDetailRacer(eachRacer.driverId)">
+           
         
             <th scope="row"> {{eachRacer.position}}</th>
             <td>{{eachRacer.nationality}}</td>
             <td>{{eachRacer.givenName + '' + eachRacer.familyName}} </td>
             <td>{{eachRacer.name}}</td>
             <td>{{eachRacer.points}}</td>
+        
           </tr>
         </tbody>
       </table>
